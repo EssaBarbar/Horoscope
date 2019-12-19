@@ -25,10 +25,10 @@ function deleteData() {
     fetch(url, {
         method: method,
     }).then((response) => {
-        console.log(response)
         return response.json()
     }).then((body) => {
         console.log(body)
+        checkButtons("inline", "none", "none")
         let horoscopeText = document.getElementById("horoscopeText");
         horoscopeText.innerText = "";
     }).catch((err) => {
@@ -45,14 +45,19 @@ function showData() {
     fetch(url, {
         method: method,
     }).then((response) => {
-        console.log(response)
+        // console.log(response)
         return response.json()
     }).then((body) => {
-        console.log(body)
+        if (body) {
+            checkButtons("none", "inline", "inline")
+        } else {
+            checkButtons("inline", "none", "none")
+        }
+        // console.log(body)
         let horoscopeText = document.getElementById("horoscopeText");
         horoscopeText.innerText = body;
     }).catch((err) => {
-        console.log("Error: ", err)
+        // console.log("Error: ", err)
     })
 };
 
@@ -115,4 +120,14 @@ function sendDate() {
         console.log("Error: ", err)
     })
     showData()
+
 };
+function checkButtons(button1, button2, button3) {
+    const saveButton = document.getElementById("saveButton");
+    const updateButton = document.getElementById("updateButton");
+    const deleteButton = document.getElementById("deleteButton");
+
+    saveButton.style.display = button1;
+    updateButton.style.display = button2;
+    deleteButton.style.display = button3;
+}
