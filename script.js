@@ -3,7 +3,6 @@ window.onload = main
 
 function main() {
     addEventListner();
-    /* funktioernra som ska köras när sidan laddas */
 };
 
 function addEventListner() {
@@ -45,7 +44,6 @@ function showData() {
     fetch(url, {
         method: method,
     }).then((response) => {
-        // console.log(response)
         return response.json()
     }).then((body) => {
         if (body) {
@@ -53,11 +51,9 @@ function showData() {
         } else {
             checkButtons("inline", "none", "none")
         }
-        // console.log(body)
         let horoscopeText = document.getElementById("horoscopeText");
         horoscopeText.innerText = body;
     }).catch((err) => {
-        // console.log("Error: ", err)
     })
 };
 
@@ -122,6 +118,7 @@ function sendDate() {
     showData()
 
 };
+
 function checkButtons(button1, button2, button3) {
     const saveButton = document.getElementById("saveButton");
     const updateButton = document.getElementById("updateButton");
