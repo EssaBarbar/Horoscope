@@ -1,9 +1,12 @@
 #saveButton {
     display: inline;
+    font-size: 1em;
 }
 #updateButton {
     display: none;
+    font-size: 1em;
 }
 #deleteButton {
     display: none;
+    font-size: 1em;
 }

@@ -3,6 +3,7 @@ window.onload = main
 
 function main() {
     addEventListner();
+    showData()
 };
 
 function addEventListner() {
